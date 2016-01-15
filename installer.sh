@@ -22,21 +22,14 @@ do
   fi
   echo 'Error: The input path is not a valid path...'
 done
-echo "Install to $input_path.
-Download the installation package now..."
+echo $'Install to $input_path.\nDownload the installation package now...'
 # download the package to installation folder
 wget 'https://github.com/ChongTang/vscode-installer/raw/master/package/VSCode-linux64.zip' -O VSCode.zip
 unzip VSCode.zip -d $input_path
 
 # create a desktop file
-desktop_entry="[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Name=Visual Studio Code
-Comment=Visual Studio Code IDE
-Exec=$desktop_entry$input_path/VSCode-linux-x64/Code
-Icon=$desktop_entry$input_path/VSCode-linux-x64/resources/app/resources/linux/vscode.png
-Terminal=false"
+desktop_entry=$'[Desktop Entry]\nType=Application\nEncoding=UTF-8\nName=Visual Studio Code\nComment=Visual Studio Code IDE\nExec=$desktop_entry$input_path/VSCode-linux-x64/Code\nIcon=$desktop_entry$input_path/VSCode-linux-x64/resources/app/resources/linux/vscode.png\nTerminal=false'
+
 # store desktop file in to local applications folder
 echo "$desktop_entry" > ~/.local/share/applications/VSCode.desktop
-echo "Installation finished. Enjoy!"
+echo "Installation finished. Enjoy!'
