@@ -1,7 +1,11 @@
-echo 'Thank you for using this installer!'
+#!/bin/bash
+echo 'Thank you for using this installer to install Visual Studio Code!'
+
 home_path=`echo $HOME`
+# default install path
 default_path="$home_path/.local/share/visual-studio-code"
 input_path=""
+# ask the user to input path
 while true
 do
   read -p "Install path [$default_path]: " input_path
@@ -18,8 +22,21 @@ do
   fi
   echo 'Error: The input path is not a valid path...'
 done
-
+echo "Install to $input_path.
+Download the installation package now..."
 # download the package to installation folder
 wget 'https://github.com/ChongTang/vscode-installer/raw/master/package/VSCode-linux64.zip' -O VSCode.zip
 unzip VSCode.zip -d $input_path
+
 # create a desktop file
+desktop_entry="[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Visual Studio Code
+Comment=Visual Studio Code IDE
+Exec=$desktop_entry$input_path/VSCode-linux-x64/Code
+Icon=$desktop_entry$input_path/VSCode-linux-x64/resources/app/resources/linux/vscode.png
+Terminal=false"
+# store desktop file in to local applications folder
+echo "$desktop_entry" > ~/.local/share/applications/VSCode.desktop
+echo "Installation finished. Enjoy!"
