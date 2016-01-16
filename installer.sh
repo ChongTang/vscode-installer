@@ -6,27 +6,17 @@ home_path=`echo $HOME`
 default_path="$home_path/.local/share/visual-studio-code"
 input_path=""
 # ask the user to input path
-while true
-do
-  read -p "Install path [$default_path]: " input_path
-  if [[ ${#input_path} == 0 ]]
-  then
-    input_path=$default_path
-  fi
-  mkdir -p $input_path
-  # get the return code of mkdir command
-  rc=$?
-  if [[ $rc == 0 ]]
-  then
-    break
-  fi
-  echo "Error: The input path is not a valid path..."
-done
+read -p "Install path [$default_path]: " input_path
+if [ -z "input_path" ]
+then
+  input_path=$default_path
+fi
 echo "Install to $input_path"
-echo "Download the installation package now..."
+mkdir -p $input_path
 
+echo "Download the installation package now..."
 # download the package to installation folder
-wget 'https://github.com/ChongTang/vscode-installer/raw/master/package/VSCode-linux64.zip' -O VSCode.zip
+wget https://github.com/ChongTang/vscode-installer/raw/master/package/VSCode-linux64.zip -O VSCode.zip
 unzip VSCode.zip -d $input_path
 
 # create a desktop file
