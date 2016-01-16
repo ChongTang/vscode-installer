@@ -23,6 +23,11 @@ do
   echo 'Error: The input path is not a valid path...'
 done
 echo $'Install to $input_path.\nDownload the installation package now...'
+if [[ $? != 0 ]]
+then
+  exit $?
+fi
+
 # download the package to installation folder
 wget 'https://github.com/ChongTang/vscode-installer/raw/master/package/VSCode-linux64.zip' -O VSCode.zip
 unzip VSCode.zip -d $input_path
