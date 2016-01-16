@@ -1,5 +1,5 @@
 #!/bin/bash
-echo 'Thank you for using this installer to install Visual Studio Code!'
+echo "Thank you for using this installer to install Visual Studio Code!"
 
 home_path=`echo $HOME`
 # default install path
@@ -20,13 +20,10 @@ do
   then
     break
   fi
-  echo 'Error: The input path is not a valid path...'
+  echo "Error: The input path is not a valid path..."
 done
-echo $'Install to $input_path.\nDownload the installation package now...'
-if [[ $? != 0 ]]
-then
-  exit $?
-fi
+echo "Install to $input_path"
+echo "Download the installation package now..."
 
 # download the package to installation folder
 wget 'https://github.com/ChongTang/vscode-installer/raw/master/package/VSCode-linux64.zip' -O VSCode.zip
