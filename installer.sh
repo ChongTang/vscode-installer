@@ -7,7 +7,7 @@ default_path="$home_path/.local/share/visual-studio-code"
 input_path=""
 # ask the user to input path
 read -p "Install path [$default_path]: " input_path
-if [ -z "input_path" ]
+if [[ -z "$input_path" ]]
 then
   input_path=$default_path
 fi
