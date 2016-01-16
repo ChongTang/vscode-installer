@@ -4,9 +4,9 @@ This bash script will install Visual Studio Code for you. In Linux, Visual Studi
 # Install script
 To install or update Visual Studio Code, you can use the install script using cURL:
 ```
-curl -o- https://cdn.rawgit.com/ChongTang/vscode-installer/master/installer.sh | bash
+curl -o- https://raw.githubusercontent.com/ChongTang/vscode-installer/master/installer.sh | bash
 ```
 or Wget:
 ```
-wget -qO- https://cdn.rawgit.com/ChongTang/vscode-installer/master/installer.sh | bash
+wget -qO- https://raw.githubusercontent.com/ChongTang/vscode-installer/master/installer.sh | bash
 ```
