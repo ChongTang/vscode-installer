@@ -16,6 +16,8 @@ unzip -qq VSCode.zip -d "$input_path"
 # create a desktop file
 desktop_entry="[Desktop Entry]\nName=Visual Studio Code\nComment=Visual Studio focused on modern web and cloud\nType=Application\nCategories=Development;\nEncoding=UTF-8\nExec=$desktop_entry$input_path/VSCode-linux-x64/Code\nIcon=$desktop_entry$input_path/VSCode-linux-x64/resources/app/resources/linux/vscode.png\nTerminal=false"
 
+# create applications folder in case there is no one
+mkdir -p ~/.local/share/applications
 # store desktop file in to local applications folder
 echo -e "$desktop_entry" > ~/.local/share/applications/visual-studio-code.desktop
 echo "Installation finished. Enjoy!"
