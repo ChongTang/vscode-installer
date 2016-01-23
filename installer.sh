@@ -20,4 +20,6 @@ desktop_entry="[Desktop Entry]\nName=Visual Studio Code\nComment=Visual Studio f
 mkdir -p ~/.local/share/applications
 # store desktop file in to local applications folder
 echo -e "$desktop_entry" > ~/.local/share/applications/visual-studio-code.desktop
+# delete downloaded file
+rm -rf VSCode.zip
 echo "Installation finished. Enjoy!"
