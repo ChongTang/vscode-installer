@@ -1,4 +1,4 @@
-# This is deprecated, please use umake to install VSCode.
+# This is deprecated, please use [ubuntu-make](https://github.com/ubuntu/ubuntu-make) to install VSCode.
 
 # Visual Studio Code Installer
 This bash script will install Visual Studio Code for you. In Linux, Visual Studio Code is released as a zip file. This installer will download the latest package, unzip to the installation path, and create a desktop entry for you.
